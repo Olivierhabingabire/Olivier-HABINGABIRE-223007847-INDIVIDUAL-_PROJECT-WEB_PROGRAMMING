@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #ddd;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background: #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            background: black;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Currency Converter APP</h2>
+
+    <!-- Amount -->
+    <label>Enter Amount (FRW)</label>
+    <input type="number" id="amount">
+
+    <!-- Currency -->
+    <label>Select Currency</label>
+    <select id="currency">
+        <option value="USD">USD</option>
+        <option value="EURO">EURO</option>
+        <option value="UK POUND">UK POUND</option>
+    </select>
+
+    <!-- Rate -->
+    <label>Enter Rate</label>
+    <input type="number" id="rate">
+
+    <!-- Button -->
+    <button onclick="convert()">CONVERT</button>
+
+    <!-- Result -->
+    <div class="result" id="result">
+        Result Here...
+    </div>
+</div>
+
+<script>
+function convert() {
+    let amount = document.getElementById("amount").value;
+    let rate = document.getElementById("rate").value;
+    let currency = document.getElementById("currency").value;
+
+    if(amount === "" || rate === "") {
+        document.getElementById("result").innerHTML = "Please fill all fields!";
+        return;
+    }
+
+    let result = amount / rate;
+
+    document.getElementById("result").innerHTML =
+        amount + " FRW = " + result + " " + currency;
+}
+</script>
+
+</body>
+</html>
